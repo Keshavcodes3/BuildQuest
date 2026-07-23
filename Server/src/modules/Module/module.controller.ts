@@ -87,13 +87,13 @@ class ModuleController {
         );
     });
 
-    reorderModules = asyncHandler(async (req: Request, res: Response) => {
-        const modules = await this.moduleService.reorderModules(req.body);
+     reorderModules = asyncHandler(async (req: Request, res: Response) => {
+         const modules = await this.moduleService.reorderModules(req.body.modules || req.body);
 
-        return res.json(
-            new ApiResponse(200, modules, "Modules reordered successfully")
-        );
-    });
+         return res.json(
+             new ApiResponse(200, modules, "Modules reordered successfully")
+         );
+     });
 }
 
 export const moduleController = new ModuleController();

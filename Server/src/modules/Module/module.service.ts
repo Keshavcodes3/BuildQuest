@@ -84,7 +84,7 @@ export class ModuleService {
 
     async reorderModules(
         modules: {
-            id: Types.ObjectId;
+            id: string;
             order: number;
         }[]
     ) {

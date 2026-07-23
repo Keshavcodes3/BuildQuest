@@ -8,6 +8,8 @@ router.use(verifyAuth);
 
 router.get("/", moduleController.getAllModules);
 
+router.patch("/reorder", verifyAuth, moduleController.reorderModules);
+
 router.get("/:id", moduleController.getModuleById);
 
 router.get(
@@ -17,16 +19,14 @@ router.get(
 
 
 
-router.post("/", verifyAuth,moduleController.createModule);
+router.post("/", verifyAuth, moduleController.createModule);
 
-router.patch("/:id",verifyAuth, moduleController.updateModule);
+router.patch("/:id", verifyAuth, moduleController.updateModule);
 
-router.delete("/:id", verifyAuth,moduleController.deleteModule);
+router.delete("/:id", verifyAuth, moduleController.deleteModule);
 
-router.patch("/:id/publish",verifyAuth, moduleController.publishModule);
+router.patch("/:id/publish", verifyAuth, moduleController.publishModule);
 
-router.patch("/:id/archive",verifyAuth, moduleController.archiveModule);
-
-router.patch("/reorder",verifyAuth, moduleController.reorderModules);
+router.patch("/:id/archive", verifyAuth, moduleController.archiveModule);
 
 export default router;
